@@ -19,4 +19,6 @@ use App\Http\Controllers\auth\AuthController;
 //     return $request->user();
 // });
 
+//Login & Register
 Route::post('register',[AuthController::class,'register']);
+Route::post('login',[AuthController::class,'login']);

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('username')->nullable();
             $table->string('email')->unique();
             $table->string('password')->nullable();
-            $table->integer('points')->default(0);
-            $table->string('role')->default('user');
+            $table->integer('points');
+            $table->string('role');
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Tymon\JWTAuth\Contracts\Providers\JWT;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -64,5 +65,4 @@ class User extends Authenticatable implements JWTSubject
 
     }
 
-    public $timestamps = false;
 }

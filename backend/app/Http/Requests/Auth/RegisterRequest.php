@@ -34,11 +34,12 @@ class RegisterRequest extends FormRequest
 
     public function messages(){
         return [
-            'rut_dni.required' => 'Ingresar el campo Rut/Dni es obligatorio',
-            'name.required' => 'Ingresar el campo Nombres es obligatorio',
-            'lastname.required' => 'Ingresar el campo Apellidos es obligatorio',
+            'rut_dni.required' => 'Ingresar el campo rut/dni es obligatorio',
+            'name.required' => 'Ingresar el campo nombres es obligatorio',
+            'lastname.required' => 'Ingresar el campo apellidos es obligatorio',
             'email.required' => 'Ingresar el campo email es obligatorio',
-            'points.required' => 'Ingresar el campo Puntos es obligatorio',
+            'email.email' => 'El formato del correo electrónico no es correcto',
+            'points.required' => 'Ingresar el campo puntos es obligatorio',
         ];
     }
 

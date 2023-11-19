@@ -18,16 +18,20 @@
   box-shadow: 20px 20px 80px rgb(218,218,218);
   border-radius: 12px;
   margin-top: 100px;
+  text-align: center;
 }
 
 .input-field{
   border-radius: 5px;
   padding: 5px;
   display: flex;
+  margin:0 auto;
   align-items: center;
   cursor: pointer;
   border: 1px solid #ddd;
   color: #436fff;
+  width:400px;
+  box-sizing: border-box;
 }
 
 .input-field.error{
@@ -44,6 +48,7 @@ img{
   margin-top: 40px;
   background-color: #00a215;
   color:#000;
+  box-sizing: border-box;
 }
 
 .btn-custom:hover{
