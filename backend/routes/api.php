@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\AuthController;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +18,5 @@ use App\Http\Controllers\auth\AuthController;
 //     return $request->user();
 // });
 
-//Login & Register
-Route::post('register',[AuthController::class,'register']);
-Route::post('login',[AuthController::class,'login']);
+//Login
+Route::post('login', [AuthController::class, 'login']);

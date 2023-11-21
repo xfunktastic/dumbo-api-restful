@@ -15,7 +15,6 @@ class LoginRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,25 +22,24 @@ class LoginRequest extends FormRequest
      */
     public function rules(): array
     {
-        {
-            return [
-                'username' => ['required','min:5'],
-                'password' => ['required','min:5'],
-            ];
-        }
+        return [
+            'username' => ['required', 'string'],
+            'password' => ['required', 'string'],
+        ];
     }
 
-    public function messages(){
+    public function messages()
+    {
         return [
-            'username.required' => 'Ingresar el campo Usuario es obligatorio',
-            'password.required' => 'Ingresar el campo Contraseña es obligatorio',
+            'username.required' => 'El campo usuario es obligatorio.',
+            'password.required' => 'El campo contraseña es obligatorio.',
         ];
     }
 
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
-            'errors'=>$validator->errors(),
+            'errors' => $validator->errors(),
         ], 422));
     }
 }

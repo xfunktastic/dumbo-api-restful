@@ -7,37 +7,42 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Requests\Auth\RegisterRequest;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
-    public function register(RegisterRequest $request)
-    {
-
-        //Creamos el usuario
-        $user = User::create([
-            'rut_dni' => $request->rut_dni,
-            'name' => $request->name,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'points' => $request->points,
-            'role' => 'user'
-        ]);
-
-        //Generamos token
-        $token = JWTAuth::fromUser($user);
-
+    public function login(LoginRequest $request){
+        $credentials = $request->only('username', 'password');
+        $role = User::where('username',$request->username)->first()->role;
+        $rut = User::where('username',$request->username)->first()->rut_dni;
+        try {
+            // Intentar autenticar al usuario con las credenciales recibidas.
+            if (!$token = JWTAuth::attempt($credentials)) {
+                return response()->json([
+                    'message' => 'Credenciales inválidas',
+                ], 400);
+            }
+        } catch (JWTException $e) {
+            return response()->json([
+                'error' => 'No se creó el token',
+            ], 500);
+        }
+        if ($role!='admin'){
+            return response([
+                'error'=>'No tienes permisos para acceder'
+            ]);
+        }
         return response()->json([
-            'user'=> $user,
-            'token' => $token,
-        ]);
+            'accesed'=>'Inicio de sesión exitoso',
+            'token'=>$token,
+            'rut'=>$rut,
+        ],200);
     }
 
-    public function login(LoginRequest $request)
-    {
 
-
-    }
+    /**
+     * Display a listing of the resource.
+     */
 
 
     public function index()
@@ -45,21 +50,33 @@ class AuthController extends Controller
         //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         //
     }
 
+    /**
+     * Display the specified resource.
+     */
     public function show(string $id)
     {
         //
     }
 
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, string $id)
     {
         //
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(string $id)
     {
         //
