@@ -39,6 +39,25 @@ class AuthController extends Controller
         ],200);
     }
 
+    public function logout(Request $request)
+    {
+        try {
+            // Obtener el token del usuario autenticado
+            $token = JWTAuth::parseToken();
+
+            // Invalidar el token para cerrar sesión
+            $token->invalidate();
+
+            // Eliminar el token del cliente
+            JWTAuth::parseToken()->invalidate(true);
+
+            // Redirigir a la pantalla de inicio de sesión
+            return redirect()->route('login')->with('success', 'Sesión cerrada correctamente');
+        } catch (\Exception $e) {
+            // Manejar cualquier error que pueda ocurrir durante el cierre de sesión
+            return response()->json(['error' => 'Error al cerrar sesión'], 500);
+        }
+    }
 
     /**
      * Display a listing of the resource.

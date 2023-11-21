@@ -1,8 +1,11 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\auth\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,5 +21,16 @@ use App\Http\Controllers\auth\AuthController;
 //     return $request->user();
 // });
 
-//Login
-Route::post('login', [AuthController::class, 'login']);
+
+    /**
+     * Rutas de Invitados
+     */
+        //1. Iniciar Sesión
+        Route::post('login', [AuthController::class, 'login']);
+
+    /**
+     * Rutas Autenticados
+     */
+    Route::middleware('jwt.verify')->group(function(){
+        Route::post('logout',[AuthController::class, 'logout']);
+    });
