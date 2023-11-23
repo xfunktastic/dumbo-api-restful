@@ -4,24 +4,23 @@
       <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
           <div class="panel border bg-white">
             <div class="panel-heading">
-              <div class="pt-3">
+              <div>
                 <img src="assets/img/dumbo-logo.png">
                 <h3 class="pt-3 font-weight-bold">Iniciar Sesión</h3>
-              </div>
             </div>
             <div class="panel-body p-3">
-              <form [formGroup] = "form" (ngSubmit)="onSubmit()">
+              <form #loginForm="ngForm"(ngSubmit)="submitLogin">
                 <div class="d-flex form-group pt-3">
                   <div class="input-field">
-                    <input type="text" placeholder="Usuario" name="loginButton" formControlName="username">
+                    <input type="text" placeholder="Usuario" [(ngModel)]="form.username">
                   </div>
                 </div>
                 <div class="d-flex form-group pt-3 mt-2">
                   <div class="input-field">
-                    <input type="password" placeholder="Contraseña" formControlName="password">
+                    <input type="text" placeholder="Contraseña" [(ngModel)]="form.password">
                   </div>
                 </div>
-                <button type="submit" class="btn btn-custom w-50" value="Enviar">Ingresar</button>
+                <button type="submit" class="btn btn-custom w-50">Ingresar</button>
               </form>
             </div>
           </div>

@@ -12,10 +12,10 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request){
+    public function login(LoginRequest $request)
+    {
         $credentials = $request->only('username', 'password');
-        $role = User::where('username',$request->username)->first()->role;
-        $rut = User::where('username',$request->username)->first()->rut_dni;
+
         try {
             // Autenticar el usuario
             if (!$token = JWTAuth::attempt($credentials)) {
@@ -25,20 +25,28 @@ class AuthController extends Controller
             }
         } catch (JWTException $e) {
             return response()->json([
-                'error' => 'No se creó el token',
+                'error' => 'No se pudo crear el token',
             ], 500);
         }
-            // Verifica si es un admin
-        if ($role!='admin'){
+
+        // Verifica si es un admin
+        $user = JWTAuth::user();
+        if ($user->role !== 'admin') {
+            // Cerrar sesión y eliminar el token si el usuario no es un admin
+            JWTAuth::invalidate(JWTAuth::getToken());
+
             return response([
-                'error'=>'No tienes permisos para acceder'
-            ],403);
+                'error' => 'No tienes permisos para acceder',
+            ], 403);
         }
+
+        $rut = $user->rut_dni;
+
         return response()->json([
-            'success'=>'Inicio de sesión exitoso',
-            'token'=>$token,
-            'rut'=>$rut,
-        ],200);
+            'success' => 'Inicio de sesión exitoso',
+            'token' => $token,
+            'rut' => $rut,
+        ], 200);
     }
 
     public function logout()
