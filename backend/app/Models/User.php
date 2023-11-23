@@ -50,16 +50,12 @@ class User extends Authenticatable implements JWTSubject
 
     public function getJWTIdentifier()
     {
-        return 'rut_dni';
+        return $this->getKey();
     }
 
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-    public function getAuthIdentifierName(){
-        return 'username';
     }
 
 }

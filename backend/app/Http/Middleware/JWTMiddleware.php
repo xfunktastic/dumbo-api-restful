@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Exception;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,19 +16,24 @@ class JWTMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next):Response
     {
         try{
             JWTAuth::parseToken()->authenticate();
-        }catch(Exception $e){
+
+        }catch(\Exception $e){
             if($e instanceof TokenInvalidException){
-                return response()->json(['status'=>'Token inválido']);
+                return response()->json(['message'=>'El Token no es válido'],401);
             }
-            if($e instanceof TokenExpiredException){
-                return response()->json(['status'=>'Token expirado']);
+
+            else if($e instanceof TokenExpiredException){
+                return response()->json(['message'=>'El Token ha expirado'],401);
             }
-            return response()->json(['status'=>'Token no encontrado']);
+
+            return response()->json(['message'=>'El Token no fue encontrado'],401);
+
         }
+
         return $next($request);
     }
 }

@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Tymon\JWTAuth\Facades\JWTAuth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AdminTableSeeder extends Seeder
@@ -16,10 +14,10 @@ class AdminTableSeeder extends Seeder
             'name' => '',
             'lastname' => '',
             'username' => 'Ochietto',
-            'email' => '',
+            'email' => 'admin',
             'password' => bcrypt('Jaqamain3pals'),
             'rut_dni' => 'admin',
-            'points' => 0,
+            'points' => null,
             'role' => 'admin',
         ]);
     }

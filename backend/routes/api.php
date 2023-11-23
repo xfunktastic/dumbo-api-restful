@@ -3,8 +3,8 @@
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,21 +16,24 @@ use App\Http\Controllers\auth\AuthController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
     /**
      * Rutas de Invitados
      */
-        //1. Iniciar Sesión
-        Route::post('login', [AuthController::class, 'login']);
+    // Iniciar Sesión
+    Route::post('login', [AuthController::class, 'login']);
+    //Crear usuario
+    Route::post('/admin/users', [UserController::class, 'store']);
+    //Visualizar usuarios
+    Route::get('/admin/users', [UserController::class, 'index']);
+    //Eliminar usuario
+    Route::delete('/admin/users{id}',[UserController::class, 'destroy']);
 
-    /**
-     * Rutas Autenticados
-     */
     Route::middleware('jwt.verify')->group(function(){
-        Route::post('logout',[AuthController::class, 'logout']);
+
+
+
+
+
+
+        // Route::delete('/admin/users{rut_dni}', [UserController::class, 'delete']);
     });
