@@ -14,7 +14,7 @@ class AdminTableSeeder extends Seeder
             'name' => '',
             'lastname' => '',
             'username' => 'Ochietto',
-            'email' => 'admin',
+            'email' => '',
             'password' => bcrypt('Jaqamain3pals'),
             'rut_dni' => 'admin',
             'points' => null,
