@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\auth;
 
-use App\Models\User;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Support\Facades\Redirect;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
@@ -51,5 +48,17 @@ class AuthController extends Controller
 
     public function logout()
     {
+        try {
+            // Invalidar el token actual del usuario
+            JWTAuth::invalidate(JWTAuth::getToken());
+
+            return response()->json([
+                'success' => 'Cierre de sesión exitoso',
+            ], 200);
+        } catch (JWTException $e) {
+            return response()->json([
+                'error' => 'No se pudo cerrar sesión',
+            ], 500);
+        }
     }
 }
