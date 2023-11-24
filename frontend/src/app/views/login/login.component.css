@@ -34,11 +34,6 @@
   box-sizing: border-box;
 }
 
-.input-field.error{
-  border: 1px solid red;
-  color:red;
-}
-
 img{
   margin-top: 15px;
   height:80px;

@@ -9,9 +9,9 @@ import { FindUsersComponent } from './views/find-users/find-users.component';
 import { CreateUserComponent } from './views/create-user/create-user.component';
 import { EditUserComponent } from './views/edit-user/edit-user.component';
 import { DeleteUserComponent } from './views/delete-user/delete-user.component';
-import { GetUserComponent } from './views/get-user/get-user.component';
-import { SidebarComponent } from './views/misc/sidebar/sidebar.component';
-import { NavbarComponent } from './views/misc/navbar/navbar.component'
+import { NavbarComponent } from './views/misc/navbar/navbar.component';
+import { GetUserEmailComponent } from './views/get-user-email/get-user-email.component';
+import { GetUserRutComponent } from './views/get-user-rut/get-user-rut.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +20,9 @@ import { NavbarComponent } from './views/misc/navbar/navbar.component'
     CreateUserComponent,
     EditUserComponent,
     DeleteUserComponent,
-    GetUserComponent,
-    SidebarComponent,
     NavbarComponent,
+    GetUserEmailComponent,
+    GetUserRutComponent,
   ],
   imports: [
     BrowserModule,
