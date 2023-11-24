@@ -9,15 +9,16 @@
                 <h3 class="pt-3 font-weight-bold">Iniciar Sesión</h3>
             </div>
             <div class="panel-body p-3">
-              <form #loginForm="ngForm"(ngSubmit)="submitLogin">
+              <!-- Login Form -->
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="d-flex form-group pt-3">
                   <div class="input-field">
-                    <input type="text" placeholder="Usuario" [(ngModel)]="form.username">
+                    <input type="text" formControlName="username" placeholder="Usuario" [(ngModel)]="loginObj.username" name="username" required>
                   </div>
                 </div>
                 <div class="d-flex form-group pt-3 mt-2">
                   <div class="input-field">
-                    <input type="text" placeholder="Contraseña" [(ngModel)]="form.password">
+                    <input type="password" formControlName="password" placeholder="Contraseña" [(ngModel)]="loginObj.password" name="password" required>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-custom w-50">Ingresar</button>

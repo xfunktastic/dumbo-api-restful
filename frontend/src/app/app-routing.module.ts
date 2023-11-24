@@ -1,14 +1,11 @@
-import { LoginComponent } from './Components/login/login.component';
+import { LoginComponent } from './views/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './Components/dashboard/dashboard.component';
-import { HeaderComponent } from './Components/header/header.component';
-import { SidenavComponent } from './Components/sidenav/sidenav.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 const routes: Routes = [
+  {path: '',redirectTo:'login', pathMatch:'full'},
   {path: 'login',component: LoginComponent},
   {path: 'dashboard',component: DashboardComponent},
-  {path: 'header',component: HeaderComponent},
-  {path: 'sidenav',component: SidenavComponent},
 ];
 
 @NgModule({
@@ -16,3 +13,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+export const routingComponents = [LoginComponent, DashboardComponent]
