@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'login',component: LoginComponent},
   {path: 'dashboard',component: DashboardComponent, canActivate: [loginGuard]},
   {path: 'show',component: FindUsersComponent, canActivate: [loginGuard]},
-  {path: 'user/new',component: CreateUserComponent, canActivate: [loginGuard]},
+  {path: 'create/new',component: CreateUserComponent, canActivate: [loginGuard]},
   {path: 'edit:rut_dni',component: EditUserComponent, canActivate: [loginGuard]},
   {path: 'delete:rut_dni',component: DeleteUserComponent, canActivate: [loginGuard]},
   {path: 'getRut:rut_dni',component: GetUserRutComponent, canActivate: [loginGuard]},

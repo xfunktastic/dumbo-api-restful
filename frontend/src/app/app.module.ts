@@ -11,7 +11,8 @@ import { EditUserComponent } from './views/edit-user/edit-user.component';
 import { DeleteUserComponent } from './views/delete-user/delete-user.component';
 import { NavbarComponent } from './views/misc/navbar/navbar.component';
 import { GetUserEmailComponent } from './views/get-user-email/get-user-email.component';
-import { GetUserRutComponent } from './views/get-user-rut/get-user-rut.component'
+import { GetUserRutComponent } from './views/get-user-rut/get-user-rut.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { GetUserRutComponent } from './views/get-user-rut/get-user-rut.component
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
