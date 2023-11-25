@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "8cb12355-f50d-4d06-a259-fd2dd0474828",
+		"name": "dumbo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29974575"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GET ALL USERS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAwODcxMjYxLCJleHAiOjE3MDA4NzQ4NjEsIm5iZiI6MTcwMDg3MTI2MSwianRpIjoicklnRUdNMjVlS1RYWTJSbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LGi0Ye_CLvOIuxKHOJAD48M8VXHNCT2LS2Pa9W_eiEI"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "127.0.0.1:8000/api/admin/users"
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAwODcxMjYxLCJleHAiOjE3MDA4NzQ4NjEsIm5iZiI6MTcwMDg3MTI2MSwianRpIjoicklnRUdNMjVlS1RYWTJSbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LGi0Ye_CLvOIuxKHOJAD48M8VXHNCT2LS2Pa9W_eiEI"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rut_dni",
+									"value": "20545216-8",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Ignacio",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Avendaño",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ignacioramirez.francisco@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "points",
+									"value": "10000",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:8000/api/admin/users/"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAwNzYyNDc5LCJleHAiOjE3MDA3NjYwNzksIm5iZiI6MTcwMDc2MjQ3OSwianRpIjoiSzRmQ09FRnJNWVhXZ2UyTiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.MzWB8y-B37S6DVa0YM0ll6mjh03a3sjED0KTQSp1gFE"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Francisco",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Javier",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ignacioramirez.francisc@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "points",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:8000/api/admin/users/20545216-8"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAwODcxMjYxLCJleHAiOjE3MDA4NzQ4NjEsIm5iZiI6MTcwMDg3MTI2MSwianRpIjoicklnRUdNMjVlS1RYWTJSbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LGi0Ye_CLvOIuxKHOJAD48M8VXHNCT2LS2Pa9W_eiEI"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "127.0.0.1:8000/api/admin/users/20545216-8"
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER RUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAwODcxMjYxLCJleHAiOjE3MDA4NzQ4NjEsIm5iZiI6MTcwMDg3MTI2MSwianRpIjoicklnRUdNMjVlS1RYWTJSbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LGi0Ye_CLvOIuxKHOJAD48M8VXHNCT2LS2Pa9W_eiEI"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "127.0.0.1:8000/api/admin/users/rut/20545216-8"
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER EMAIL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAwODcxMjYxLCJleHAiOjE3MDA4NzQ4NjEsIm5iZiI6MTcwMDg3MTI2MSwianRpIjoicklnRUdNMjVlS1RYWTJSbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LGi0Ye_CLvOIuxKHOJAD48M8VXHNCT2LS2Pa9W_eiEI"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "127.0.0.1:8000/api/admin/users/email/ignacioramirez.francisco@gmail.com"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "Ochietto",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Jaqamain3pals",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:8000/api/login"
+					},
+					"response": []
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAwODcxMjYxLCJleHAiOjE3MDA4NzQ4NjEsIm5iZiI6MTcwMDg3MTI2MSwianRpIjoicklnRUdNMjVlS1RYWTJSbiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LGi0Ye_CLvOIuxKHOJAD48M8VXHNCT2LS2Pa9W_eiEI"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:8000/api/admin/users/logout"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
