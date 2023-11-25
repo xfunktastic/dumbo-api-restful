@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -18,6 +17,5 @@ export class NavbarComponent {
     localStorage.removeItem('token');
     this.router.navigate(['login']);
   }
-
 
 }

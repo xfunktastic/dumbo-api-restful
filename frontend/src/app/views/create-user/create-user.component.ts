@@ -11,17 +11,10 @@ import { ApiService } from '../../services/api.service';
 export class CreateUserComponent {
 
   createUser: FormGroup;
-  createUserObj: any = {
-    "rut": "",
-    "name": "",
-    "lastname": "",
-    "email": "",
-    "points": "",
-  }
 
   constructor(private ApiService: ApiService, private router: Router) {
     this.createUser = new FormGroup({
-      rut: new FormControl(),
+      rut_dni: new FormControl(),
       name: new FormControl(),
       lastname: new FormControl(),
       email: new FormControl(),
@@ -29,6 +22,9 @@ export class CreateUserComponent {
     });
   }
 
-  async createUserSubmit() {
+  async createUserClick(){
+    await this.ApiService.createUser(this.createUser.value);
   }
+
+
 }

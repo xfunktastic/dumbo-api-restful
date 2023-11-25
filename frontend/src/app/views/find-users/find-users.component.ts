@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';  // Asegúrate de especificar la ruta correcta hacia tu servicio
 
 @Component({
@@ -8,8 +9,9 @@ import { ApiService } from 'src/app/services/api.service';  // Asegúrate de esp
 })
 export class FindUsersComponent implements OnInit {
   users: any[] = [];
+  rutSelected: string | null = null;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router:Router) { }
 
   ngOnInit(){
     this.getUsers();
@@ -17,7 +19,17 @@ export class FindUsersComponent implements OnInit {
 
   getUsers() {
     this.apiService.getUsers().subscribe((response:any)=>{
-      this.users = response.users;
-    });
+      this.users = response.users;});
+  }
+
+  deleteUser(rut: string): void {
+    this.rutSelected = rut;
+    this.apiService.deleteUser(rut).subscribe();
+  }
+
+  editUser(rut: string): void {
+    this.rutSelected = rut;
+    this.apiService.editUser(rut).subscribe();
+    this.router.navigate(['edit']);
   }
 }

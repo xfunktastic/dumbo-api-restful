@@ -1,0 +1,14 @@
+.card {
+  max-width: 500px;
+  margin: auto;
+}
+
+.form-group {
+  max-width: 400px;
+  margin: auto;
+}
+
+.btn-block {
+  max-width: 400px;
+  margin: auto;
+}

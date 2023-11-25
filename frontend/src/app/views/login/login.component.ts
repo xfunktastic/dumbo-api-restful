@@ -27,7 +27,7 @@ export class LoginComponent{
     const message = await this.ApiService.login(this.form.value);
     if(!message.error){
       localStorage.setItem("token", message.token);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/show']);
     }
     if(message.error){
       console.log(message.error);

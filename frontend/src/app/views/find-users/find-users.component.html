@@ -1,24 +1,36 @@
 <app-navbar></app-navbar>
-<div class="user-list">
-  <h2>Lista de Usuarios</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>RUT</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Correo Electrónico</th>
-        <th>Puntos</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.rut_dni }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.lastname }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.points }}</td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="container mt-4 outer">
+  <div class="user-list">
+    <h2>Lista de Usuarios</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>RUT</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo Electrónico</th>
+          <th>Puntos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.rut_dni }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.points }}</td>
+          <td>
+            <div class="button-container">
+              <button class="btn btn-success" (click)="editUser(user.rut_dni)">Editar</button>
+              <button class="btn btn-danger" (click)="deleteUser(user.rut_dni)">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="btn btn-custom mb-3" (click)="getUsers()">Actualizar</button>
+  </div>
 </div>
